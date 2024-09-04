@@ -7,7 +7,7 @@ import server.commerce.domain.product.entity.Product;
 
 public interface ProductReaderRepository {
 
-	Optional<Product> findById(Long productId);
+	Product findById(Long productId);
 
 	List<Product> readAll();
 }

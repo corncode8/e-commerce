@@ -21,6 +21,8 @@ public enum BaseResponseStatus {
 
 	NOT_FOUND_PAYMENT(false, HttpStatus.NOT_FOUND.value(), "찾을 수 없는 결제내역 입니다."),
 	NOT_FOUND_PRODUCT(false, HttpStatus.NOT_FOUND.value(), "찾을 수 없는 상품 입니다."),
+	INSUFFICIENT_QUANTITY(false, HttpStatus.NOT_FOUND.value(), "찾을 수 없는 상품 입니다."),
+
 
 	/**
 	 * 500 :  Database, Server 오류

@@ -18,8 +18,7 @@ public class ProductReader {
 	private final ProductReaderRepository productReaderRepository;
 
 	public Product findById(Long productId) {
-		return productReaderRepository.findById(productId)
-			.orElseThrow(() -> new BaseException(NOT_FOUND_PRODUCT));
+		return productReaderRepository.findById(productId);
 	}
 
 	public List<Product> readAll() {
