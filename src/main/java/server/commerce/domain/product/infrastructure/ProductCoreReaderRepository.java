@@ -3,7 +3,6 @@ package server.commerce.domain.product.infrastructure;
 import static server.commerce.api.support.response.BaseResponseStatus.NOT_FOUND_PRODUCT;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.stereotype.Repository;
 

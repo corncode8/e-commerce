@@ -2,9 +2,7 @@ package server.commerce.domain.product.components;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
@@ -13,7 +11,6 @@ import server.commerce.domain.order.entity.OrderItem;
 import server.commerce.domain.order.repository.OrderItemReaderRepository;
 import server.commerce.domain.product.entity.Product;
 import server.commerce.domain.product.repository.ProductReaderRepository;
-import server.commerce.domain.product.repository.ProductStoreRepository;
 
 @Component
 @RequiredArgsConstructor
