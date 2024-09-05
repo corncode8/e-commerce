@@ -15,8 +15,7 @@ public enum BaseResponseStatus {
 	/**
 	 * 400 : Request, Response 오류
 	 */
-	EMPTY_NAME_USER(false, HttpStatus.BAD_REQUEST.value(), "이름을 입력해주세요."),
-	NOT_FIND_POINT_LIST(false, HttpStatus.NOT_FOUND.value(), "포인트 내역이 없습니다."),
+	NOT_FOUND_USER(false, HttpStatus.BAD_REQUEST.value(), "찾을 수 없는 유저입니다."),
 	NOT_ENOUGH_POINT(false, HttpStatus.BAD_REQUEST.value(), "포인트가 부족합니다."),
 
 	NOT_FOUND_PAYMENT(false, HttpStatus.NOT_FOUND.value(), "찾을 수 없는 결제내역 입니다."),
