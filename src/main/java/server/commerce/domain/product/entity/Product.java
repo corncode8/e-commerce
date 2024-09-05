@@ -53,6 +53,10 @@ public class Product extends BaseEntity {
 		this.stockQuantity = this.stockQuantity - quantity;
 	}
 
+	public Product toProduct() {
+		return new Product(getId(), name, price, description, stockQuantity);
+	}
+
 	public void isEnoughStockQuantity(Long quantity) {
 		if (this.stockQuantity < quantity) {
 			throw new BaseException(INSUFFICIENT_QUANTITY);

@@ -2,6 +2,7 @@ package server.commerce.domain.product.components;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 import java.util.List;
@@ -56,5 +57,29 @@ public class ProductReaderTest {
 		assertEquals(products.size(), 2);
 		assertEquals(products.get(0).getName(), product1.getName());
 		assertEquals(products.get(1).getName(), product2.getName());
+	}
+
+	@DisplayName("최근 3일동안 가장 많이 팔링 상품 조회")
+	@Test
+	void readTopSellingProductsTest() {
+	    //given
+		when(productReaderRepository.findTopSellingProducts(any(), any(), any(), any())).thenReturn(
+			List.of(
+				Fixtures.product("후드티"),
+				Fixtures.product("모자"),
+				Fixtures.product("맨투맨"),
+				Fixtures.product("백팩"),
+				Fixtures.product("셔츠"))
+		);
+
+	    //when
+		List<Product> result = productReader.readTopSellingProducts();
+
+		//then
+		assertNotNull(result);
+		assertEquals(result.size(), 5);
+		assertEquals(result.get(0).getName(), "후드티");
+		assertEquals(result.get(4).getName(), "셔츠");
+
 	}
 }
