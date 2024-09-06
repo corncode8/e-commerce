@@ -49,6 +49,10 @@ public class Product extends BaseEntity {
 		return price * quantity;
 	}
 
+	public void updateStock(Long stockQuantity) {
+		this.stockQuantity = stockQuantity;
+	}
+
 	public void decreaseStock(Long quantity) {
 		this.stockQuantity = this.stockQuantity - quantity;
 	}

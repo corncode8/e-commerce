@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import server.commerce.api.support.exceptions.BaseException;
 import server.commerce.domain.order.entity.Order;
 import server.commerce.domain.product.entity.Product;

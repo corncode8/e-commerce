@@ -50,18 +50,13 @@ public class Order extends BaseEntity {
 	@Column(name = "user_id")
 	private Long userId;
 
-	@ElementCollection(fetch = FetchType.LAZY)
-	@CollectionTable(name = "order_items", joinColumns = @JoinColumn(name = "order_id"))
-	@Column(name = "orderitem_id")
-	private List<Long> orderItemId = new ArrayList<>();
 
 	public enum OrderStatus {
 		READY, ORDERED, CANCELED , SHIPPED, DELIVERED
 	}
 
 	public Order(Long id, Long payAmount, String address, String receiverName, String phone, OrderStatus status,
-		Long userId,
-		List<Long> orderItemId) {
+		Long userId) {
 		this.id = id;
 		this.payAmount = payAmount;
 		this.address = address;
@@ -69,6 +64,14 @@ public class Order extends BaseEntity {
 		this.phone = phone;
 		this.status = status;
 		this.userId = userId;
-		this.orderItemId = orderItemId;
+	}
+
+	public Order(Long userId, Long payAmount, String address, String receiverName, String phone, OrderStatus status) {
+		this.userId = userId;
+		this.payAmount = payAmount;
+		this.address = address;
+		this.receiverName = receiverName;
+		this.phone = phone;
+		this.status = status;
 	}
 }

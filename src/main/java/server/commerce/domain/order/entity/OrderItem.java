@@ -48,4 +48,13 @@ public class OrderItem {
 		this.orderId = orderId;
 		this.productId = productId;
 	}
+
+	public OrderItem(Long orderId, Long productId, String productName, Long price, Long totalPrice, Long quantity) {
+		this.orderId = orderId;
+		this.productId = productId;
+		this.productName = productName;
+		this.price = price;
+		this.totalPrice = totalPrice;
+		this.quantity = quantity;
+	}
 }

@@ -3,7 +3,6 @@ package server.commerce.domain.user.components;
 import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
-import server.commerce.api.support.exceptions.BaseException;
 import server.commerce.domain.user.entity.User;
 import server.commerce.domain.user.repository.UserReaderRepository;
 

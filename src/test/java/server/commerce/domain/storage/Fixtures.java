@@ -34,8 +34,7 @@ public class Fixtures {
 				"홍길동",
 				"01012345678",
 				Order.OrderStatus.ORDERED,
-				1L,
-				List.of(1L, 2L));
+				1L);
 		}
 		throw new EntityNotFoundException("Order Not Found - order status: " + status);
 	}
