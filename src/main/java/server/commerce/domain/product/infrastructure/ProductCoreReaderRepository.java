@@ -4,12 +4,12 @@ import static server.commerce.api.support.response.BaseResponseStatus.NOT_FOUND_
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import server.commerce.api.support.exceptions.BaseException;
 import server.commerce.domain.order.entity.Order;
 import server.commerce.domain.product.entity.Product;
@@ -38,5 +38,12 @@ public class ProductCoreReaderRepository implements ProductReaderRepository {
 		return productJpaRepository.findTopSellingProducts(status, startDate, endDate, pageable)
 			.map(Product::toProduct)
 			.toList();
+	}
+
+	@Override
+	public List<Product> readAllByIds(List<Long> productIds) {
+		return productJpaRepository.findByIdIn(productIds).stream()
+			.map(Product::toProduct)
+			.collect(Collectors.toList());
 	}
 }

@@ -1,6 +1,7 @@
 package server.commerce.domain.product.infrastructure;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -25,4 +26,6 @@ public interface ProductJpaRepository extends JpaRepository<Product, Long> {
 		@Param("startDate") LocalDateTime startDate,
 		@Param("endDate") LocalDateTime endDate,
 		Pageable pageable);
+
+	List<Product> findByIdIn(List<Long> productIds);
 }

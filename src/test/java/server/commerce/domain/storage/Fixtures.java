@@ -1,7 +1,5 @@
 package server.commerce.domain.storage;
 
-import java.util.List;
-
 import jakarta.persistence.EntityNotFoundException;
 import server.commerce.domain.order.entity.Order;
 import server.commerce.domain.order.entity.OrderItem;

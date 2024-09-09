@@ -1,15 +1,10 @@
 package server.commerce.domain.order.infrastructure;
 
-import static server.commerce.api.support.response.BaseResponseStatus.NOT_FOUND_PRODUCT;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
-import server.commerce.api.support.exceptions.BaseException;
 import server.commerce.domain.order.entity.dto.OrderForm;
 import server.commerce.domain.order.entity.Order;
 import server.commerce.domain.order.entity.OrderItem;

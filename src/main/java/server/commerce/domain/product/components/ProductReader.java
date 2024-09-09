@@ -33,4 +33,8 @@ public class ProductReader {
 
 		return productReaderRepository.findTopSellingProducts(Order.OrderStatus.ORDERED, startDate, endDate, topFive);
 	}
+
+	public List<Product> readAllByIds(List<Long> productIds) {
+		return productReaderRepository.readAllByIds(productIds);
+	}
 }

@@ -45,7 +45,7 @@ public class Product extends BaseEntity {
 		this.stockQuantity = stockQuantity;
 	}
 
-	public Long getTotalPrice(Long quantity) {
+	public Long orderTotalPrice(Long quantity) {
 		return price * quantity;
 	}
 

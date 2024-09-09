@@ -14,6 +14,8 @@ public interface ProductReaderRepository {
 
 	List<Product> readAll();
 
+	List<Product> readAllByIds(List<Long> productIds);
+
 	List<Product> findTopSellingProducts(
 		Order.OrderStatus status,
 		LocalDateTime startDate,
