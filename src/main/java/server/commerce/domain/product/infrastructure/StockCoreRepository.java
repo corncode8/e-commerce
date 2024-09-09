@@ -1,7 +1,5 @@
 package server.commerce.domain.product.infrastructure;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;

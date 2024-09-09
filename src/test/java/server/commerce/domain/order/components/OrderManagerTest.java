@@ -6,7 +6,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyList;
 import static org.mockito.Mockito.when;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
@@ -20,10 +19,8 @@ import server.commerce.api.dto.request.OrderRequest;
 import server.commerce.api.dto.request.ProductRequest;
 import server.commerce.api.dto.request.Receiver;
 import server.commerce.domain.order.entity.Order;
-import server.commerce.domain.order.entity.OrderItem;
 import server.commerce.domain.order.entity.dto.OrderProduct;
 import server.commerce.domain.order.repository.OrderRepository;
-import server.commerce.domain.product.components.ProductReader;
 import server.commerce.domain.product.entity.Product;
 import server.commerce.domain.storage.Fixtures;
 import server.commerce.domain.user.entity.User;

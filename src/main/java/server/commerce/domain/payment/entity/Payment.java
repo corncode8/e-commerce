@@ -5,12 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import server.commerce.domain.common.BaseEntity;
 
 @Entity
+@Table(name = "payments")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Payment extends BaseEntity {
@@ -26,4 +28,8 @@ public class Payment extends BaseEntity {
 	@Column(name = "pay_amount")
 	private Long payAmount;
 
+	public Payment(Long orderId, Long payAmount) {
+		this.orderId = orderId;
+		this.payAmount = payAmount;
+	}
 }
