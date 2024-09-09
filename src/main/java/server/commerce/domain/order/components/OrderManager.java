@@ -18,7 +18,7 @@ public class OrderManager {
 	private final OrderRepository orderRepository;
 	private final OrderProductReader orderProductReader;
 
-	public Order order (Long userId, OrderRequest orderRequest) {
+	public Order order(Long userId, OrderRequest orderRequest) {
 		List<OrderProduct> read = orderProductReader.read(orderRequest.getProductRequestList());
 		OrderForm orderForm = OrderForm.of(orderRequest, read);
 		return orderRepository.create(userId, orderForm);

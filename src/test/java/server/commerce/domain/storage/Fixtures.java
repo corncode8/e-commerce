@@ -4,6 +4,7 @@ import jakarta.persistence.EntityNotFoundException;
 import server.commerce.domain.order.entity.Order;
 import server.commerce.domain.order.entity.OrderItem;
 import server.commerce.domain.product.entity.Product;
+import server.commerce.domain.user.entity.User;
 
 public class Fixtures {
 	public static Product product(String name) {
@@ -47,5 +48,13 @@ public class Fixtures {
 		}
 
 		throw new EntityNotFoundException("Order Item Not Found - order id: " + orderId + ", product id: " + productId);
+	}
+
+	public static User user(Long id) {
+		if (id.equals(1L)) {
+			return new User(1L, 50_000L, "홍길동", "서울특별시 송파구", "01012345678");
+		}
+
+		throw new EntityNotFoundException("User Not Found - id: " + id);
 	}
 }

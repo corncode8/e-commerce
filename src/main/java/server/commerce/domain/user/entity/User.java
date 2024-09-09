@@ -42,6 +42,14 @@ public class User extends BaseEntity {
 	@Version
 	private Long version;
 
+	public User(Long id, Long point, String name, String address, String phone) {
+		this.id = id;
+		this.point = point;
+		this.name = name;
+		this.address = address;
+		this.phone = phone;
+	}
+
 	public User(Long id, Long point) {
 		this.id = id;
 		this.point = point;

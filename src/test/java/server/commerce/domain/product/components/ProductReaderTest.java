@@ -1,5 +1,6 @@
 package server.commerce.domain.product.components;
 
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -81,5 +82,28 @@ public class ProductReaderTest {
 		assertEquals(result.get(0).getName(), "후드티");
 		assertEquals(result.get(4).getName(), "셔츠");
 
+	}
+
+	@Test
+	@DisplayName("상품 id list 기반으로 상품을 조회.")
+	void readAllProductByIds() {
+		// Given
+		List<Product> products = List.of(
+			Fixtures.product("후드티"),
+			Fixtures.product("맨투맨")
+		);
+
+		List<Long> productIds = products.stream().map(Product::getId).toList();
+
+		when(productReaderRepository.readAllByIds(any())).thenReturn(products);
+
+
+		// When
+		List<Product> result = productReader.readAllByIds(productIds);
+
+		// Then
+		assertThat(result).isNotNull();
+		assertThat(result.get(0).getName()).isEqualTo("후드티");
+		assertThat(result.get(1).getName()).isEqualTo("맨투맨");
 	}
 }

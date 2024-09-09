@@ -19,9 +19,11 @@ public enum BaseResponseStatus {
 	NOT_ENOUGH_POINT(false, HttpStatus.BAD_REQUEST.value(), "포인트가 부족합니다."),
 
 	NOT_FOUND_PAYMENT(false, HttpStatus.NOT_FOUND.value(), "찾을 수 없는 결제내역 입니다."),
+
 	NOT_FOUND_PRODUCT(false, HttpStatus.NOT_FOUND.value(), "찾을 수 없는 상품 입니다."),
 	INSUFFICIENT_QUANTITY(false, HttpStatus.NOT_FOUND.value(), "찾을 수 없는 상품 입니다."),
 
+	NOT_FOUND_STOCK(false, HttpStatus.BAD_REQUEST.value(), "재고 정보를 찾지 못했습니다."),
 
 	/**
 	 * 500 :  Database, Server 오류
