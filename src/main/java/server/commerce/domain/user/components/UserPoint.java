@@ -18,11 +18,11 @@ public class UserPoint {
 		return user.getPoint();
 	}
 
-	public User pointCharge(Long id, Long point) {
+	public Long pointCharge(Long id, Long point) {
 		User user = userReaderRepository.findById(id);
 		user.sumPoint(point);
 
-		return user;
+		return user.getPoint();
 	}
 
 	public User pointUse(Long id, Long point) {
