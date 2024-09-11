@@ -36,11 +36,11 @@ public class UserPointTest {
 		when(userReaderRepository.findById(testId)).thenReturn(user);
 
 		//when
-		Long result = userPoint.pointCharge(testId, chargePoint);
+		User result = userPoint.pointCharge(testId, chargePoint);
 
 		//then
 		assertNotNull(result);
-		assertEquals(500 + 50000, result);
+		assertEquals(500 + 50000, result.getPoint());
 	}
 
 	@DisplayName("포인트 사용 테스트")
@@ -86,10 +86,10 @@ public class UserPointTest {
 		when(userReaderRepository.findById(testId)).thenReturn(user);
 
 		//when
-		Long result = userPoint.getPoint(testId);
+		User result = userPoint.getPoint(testId);
 
 		//then
 		assertNotNull(result);
-		assertEquals(50000, user.getPoint());
+		assertEquals(50000, result.getPoint());
 	}
 }
