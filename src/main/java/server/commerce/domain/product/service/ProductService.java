@@ -36,4 +36,6 @@ public class ProductService {
 		return productReader.readAllByIds(productIds);
 	}
 
+
+
 }
