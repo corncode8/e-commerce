@@ -13,7 +13,7 @@ public class PaymentManager {
 
 	private final PaymentRepository paymentRepository;
 
-	public Payment create(Order order, Long payAmount) {
-		return paymentRepository.create(order.getId(), payAmount);
+	public Payment create(Order order) {
+		return paymentRepository.create(order.getId(), order.getPayAmount());
 	}
 }

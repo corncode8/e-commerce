@@ -1,10 +1,14 @@
 package server.commerce.domain.order.infrastructure;
 
+import static server.commerce.api.support.response.BaseResponseStatus.NOT_FOUND_ORDER;
+
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
+import server.commerce.api.support.exceptions.BaseException;
+import server.commerce.api.support.response.BaseResponseStatus;
 import server.commerce.domain.order.entity.dto.OrderForm;
 import server.commerce.domain.order.entity.Order;
 import server.commerce.domain.order.entity.OrderItem;
@@ -40,5 +44,11 @@ public class OrderCoreRepository implements OrderRepository {
 				)).collect(Collectors.toList()));
 
 		return order;
+	}
+
+	@Override
+	public Order findById(Long id) {
+		return orderJpaRepository.findById(id)
+			.orElseThrow(() -> new BaseException(NOT_FOUND_ORDER));
 	}
 }

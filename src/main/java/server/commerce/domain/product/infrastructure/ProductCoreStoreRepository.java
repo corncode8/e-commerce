@@ -3,6 +3,7 @@ package server.commerce.domain.product.infrastructure;
 import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
+import server.commerce.domain.order.entity.Order;
 import server.commerce.domain.product.repository.ProductStoreRepository;
 
 @Repository
@@ -10,4 +11,5 @@ import server.commerce.domain.product.repository.ProductStoreRepository;
 public class ProductCoreStoreRepository implements ProductStoreRepository {
 
 	private final ProductJpaRepository productJpaRepository;
+
 }

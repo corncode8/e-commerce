@@ -7,6 +7,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import server.commerce.domain.order.entity.Order;
+import server.commerce.domain.product.components.ProductManager;
 import server.commerce.domain.product.components.ProductReader;
 import server.commerce.domain.product.entity.Product;
 
@@ -16,6 +18,7 @@ import server.commerce.domain.product.entity.Product;
 public class ProductService {
 
 	private final ProductReader productReader;
+	private final ProductManager productManager;
 
 	@Transactional(readOnly = true)
 	public List<Product> getProducts() {
@@ -36,6 +39,9 @@ public class ProductService {
 		return productReader.readAllByIds(productIds);
 	}
 
-
+	@Transactional
+	public void updateProductStock(Order order) {
+		productManager.updateProductStock(order);
+	}
 
 }

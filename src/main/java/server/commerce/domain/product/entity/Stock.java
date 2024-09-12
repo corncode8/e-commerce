@@ -1,5 +1,7 @@
 package server.commerce.domain.product.entity;
 
+import static server.commerce.api.support.response.BaseResponseStatus.INSUFFICIENT_QUANTITY;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +11,7 @@ import jakarta.persistence.Table;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import server.commerce.api.support.exceptions.BaseException;
 import server.commerce.domain.common.BaseEntity;
 
 @Entity
@@ -38,7 +41,18 @@ public class Stock extends BaseEntity {
 		return new Stock(id, productId, stockQuantity);
 	}
 
-	public void updateStock(Long stockQuantity) {
-		this.stockQuantity = stockQuantity;
+	public void decreaseStock(Long quantity) {
+		this.stockQuantity = stockQuantity - quantity;
+	}
+	public void increaseStock(Long quantity) {
+		this.stockQuantity = stockQuantity + quantity;
+	}
+
+
+
+	public void isEnoughStockQuantity(Long quantity) {
+		if (stockQuantity < quantity) {
+			throw new BaseException(INSUFFICIENT_QUANTITY);
+		}
 	}
 }

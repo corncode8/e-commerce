@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import lombok.RequiredArgsConstructor;
 import server.commerce.domain.order.entity.Order;
+import server.commerce.domain.order.entity.OrderItem;
 import server.commerce.domain.product.entity.Product;
 import server.commerce.domain.product.repository.ProductReaderRepository;
 

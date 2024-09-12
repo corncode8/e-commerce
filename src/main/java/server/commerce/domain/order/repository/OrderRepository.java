@@ -6,4 +6,6 @@ import server.commerce.domain.order.entity.Order;
 public interface OrderRepository {
 
 	Order create(Long userId, OrderForm orderForm);
+
+	Order findById(Long id);
 }

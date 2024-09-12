@@ -38,14 +38,14 @@ public class Order extends BaseEntity {
 
 	@Enumerated(value = EnumType.STRING)
 	@Column(name = "status", nullable = false, length = 10)
-	private OrderStatus status = OrderStatus.ORDERED;
+	private OrderStatus status = OrderStatus.READY;
 
 	@Column(name = "user_id")
 	private Long userId;
 
 
 	public enum OrderStatus {
-		READY, ORDERED, CANCELED , SHIPPED, DELIVERED
+		READY, ORDERED, CANCELED , SHIPPED, DELIVERED, FAIL
 	}
 
 	public Order(Long id, Long payAmount, String address, String receiverName, String phone, OrderStatus status,
@@ -66,5 +66,12 @@ public class Order extends BaseEntity {
 		this.receiverName = receiverName;
 		this.phone = phone;
 		this.status = status;
+	}
+
+	public void orderFailed() {
+		this.status = OrderStatus.FAIL;
+	}
+	public void setOrdered() {
+		this.status = OrderStatus.ORDERED;
 	}
 }

@@ -1,6 +1,9 @@
 package server.commerce.domain.order.infrastructure;
 
+import static server.commerce.api.support.response.BaseResponseStatus.NOT_FOUND_ORDER;
 import static server.commerce.api.support.response.BaseResponseStatus.NOT_FOUND_PRODUCT;
+
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
@@ -19,6 +22,11 @@ public class OrderItemCoreReaderRepository implements OrderItemReaderRepository 
 	public OrderItem findById(Long orderItemId) {
 		return orderItemJpaRepository.findById(orderItemId)
 			.orElseThrow(() -> new BaseException(NOT_FOUND_PRODUCT));
+	}
+
+	@Override
+	public List<OrderItem> findByOrderId(Long orderId) {
+		return orderItemJpaRepository.findByOrderId(orderId);
 	}
 
 }

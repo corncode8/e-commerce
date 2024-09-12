@@ -23,4 +23,12 @@ public class OrderManager {
 		OrderForm orderForm = OrderForm.of(orderRequest, read);
 		return orderRepository.create(userId, orderForm);
 	}
+
+	public void failOrder(Order order) {
+		order.orderFailed();
+	}
+
+	public Order findOrder(Long orderId) {
+		return orderRepository.findById(orderId);
+	}
 }
