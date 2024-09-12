@@ -1,6 +1,5 @@
 package server.commerce.domain.product.components;
 
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 

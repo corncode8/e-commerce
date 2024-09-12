@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import lombok.RequiredArgsConstructor;
 import server.commerce.api.support.exceptions.BaseException;
-import server.commerce.api.support.response.BaseResponseStatus;
 import server.commerce.domain.order.entity.dto.OrderForm;
 import server.commerce.domain.order.entity.Order;
 import server.commerce.domain.order.entity.OrderItem;

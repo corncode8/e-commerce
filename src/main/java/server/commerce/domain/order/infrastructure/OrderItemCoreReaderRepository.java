@@ -1,6 +1,5 @@
 package server.commerce.domain.order.infrastructure;
 
-import static server.commerce.api.support.response.BaseResponseStatus.NOT_FOUND_ORDER;
 import static server.commerce.api.support.response.BaseResponseStatus.NOT_FOUND_PRODUCT;
 
 import java.util.List;

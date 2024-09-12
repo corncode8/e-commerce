@@ -6,18 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.RequiredArgsConstructor;
+import server.commerce.api.application.OrderUseCase;
 import server.commerce.api.dto.request.OrderRequest;
 import server.commerce.api.dto.response.OrderResponse;
 import server.commerce.api.support.response.BaseResponse;
 import server.commerce.domain.order.entity.Order;
-import server.commerce.domain.order.service.OrderService;
 
 @RestController
 @RequestMapping("/orders")
 @RequiredArgsConstructor
 public class OrderController {
 
-	private final OrderService orderService;
+	private final OrderUseCase orderUseCase;
 
 	/*
 	* 상품 주문
@@ -27,7 +27,7 @@ public class OrderController {
 	* */
 	@PostMapping("/{userId}")
 	public BaseResponse<OrderResponse> order(@PathVariable("id") Long id, OrderRequest request) {
-		Order order = orderService.order(id, request);
+		Order order = orderUseCase.order(id, request);
 		return new BaseResponse<>(new OrderResponse(order));
 	}
 }
