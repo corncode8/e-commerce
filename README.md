@@ -39,44 +39,45 @@
 
 ## ERD
 
+![concert erd](https://raw.githubusercontent.com/corncode8/e-commerce/master/images/erd/erd.png)
 
 ## API 명세
 
 #### 잔액 충전/조회 API
 
 잔액 조회 API <br/>
-| 메서드 | URL | <br/>
-|--------|-----------| <br/>
+| 메서드 | URL | 
+|--------|-----------| 
 | GET |/users/{id} | <br/>
 
 <br/>
 잔액 충전 API <br/>
-| 메서드 | URL | <br/>
-|--------|-----------| <br/>
+| 메서드 | URL | 
+|--------|-----------| 
 | PATCH |/users/charge | <br/>
 <br/>
 
 #### 상품 조회 API
 
 상품 조회 API <br/>
-| 메서드 | URL | <br/>
-|--------|-----------| <br/>
+| 메서드 | URL | 
+|--------|-----------| 
 | GET |/products/{id} | <br/>
 <br/>
 
 #### 상위 상품 조회 API
 
 상위 상품 조회 API <br/>
-| 메서드 | URL | <br/>
-|--------|-----------| <br/>
+| 메서드 | URL | 
+|--------|-----------| 
 | GET |/products/popular | <br/>
 <br/>
 
 #### 주문 / 결제 API
 
 주문 / 결제 API <br/>
-| 메서드 | URL | <br/>
-|--------|-----------| <br/>
+| 메서드 | URL | 
+|--------|-----------| 
 | POST |/orders/{userId} | <br/>
 <br/>
 
