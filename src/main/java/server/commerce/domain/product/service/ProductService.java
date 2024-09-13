@@ -2,6 +2,7 @@ package server.commerce.domain.product.service;
 
 import java.util.List;
 
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +31,7 @@ public class ProductService {
 		return productReader.findById(productId);
 	}
 
+	@Cacheable(value = "products", key = "'popular'", cacheManager = "cacheManager")
 	@Transactional(readOnly = true)
 	public List<Product> readTopSellingProducts() {
 		return productReader.readTopSellingProducts();
