@@ -30,10 +30,10 @@ public class Order extends BaseEntity {
 	@Column(name = "address")
 	private String address;
 
-	@Column(name = "receiver_name")
+	@Column(name = "receiver_name", length = 100)
 	private String receiverName;
 
-	@Column(name = "phone")
+	@Column(name = "phone", length = 100)
 	private String phone;
 
 	@Enumerated(value = EnumType.STRING)

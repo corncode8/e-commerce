@@ -7,6 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -16,6 +17,7 @@ import server.commerce.domain.common.BaseEntity;
 
 @Entity
 @Getter
+@Table(name = "users")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User extends BaseEntity {
 
@@ -24,13 +26,13 @@ public class User extends BaseEntity {
 	@Column(name = "user_id", nullable = false, updatable = false)
 	private Long id;
 
-	@Column(name = "name")
+	@Column(name = "name", length = 100)
 	private String name;
 
 	@Column(name = "name")
 	private String address;
 
-	@Column(name = "phone")
+	@Column(name = "phone", length = 100)
 	private String phone;
 
 	@Column(name = "point")

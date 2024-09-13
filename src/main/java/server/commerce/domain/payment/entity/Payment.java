@@ -22,11 +22,11 @@ public class Payment extends BaseEntity {
 	@Column(name = "payment_id", nullable = false, updatable = false)
 	private Long id;
 
-	@Column(name = "orderId")
-	private Long orderId;
-
 	@Column(name = "pay_amount")
 	private Long payAmount;
+
+	@Column(name = "orderId")
+	private Long orderId;
 
 	public Payment(Long orderId, Long payAmount) {
 		this.orderId = orderId;

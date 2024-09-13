@@ -30,13 +30,13 @@ public class WalletContoller {
 	* @param userId 유저 아이디
 	* @return 잔액 정보 return
 	* */
-	@GetMapping("/users/{id}")
+	@GetMapping("/{id}")
 	public BaseResponse<WalletResponse> getUserWallet(@PathVariable("id") Long id) {
 		User user = userPoint.getPoint(id);
 		return new BaseResponse<>(new WalletResponse(user));
 	}
 
-	@PatchMapping("/users/charge")
+	@PatchMapping("/charge")
 	public BaseResponse<ChargeResponse> charge(@RequestBody ChargeRequest request) {
 		User user = userPoint.pointCharge(request.getUserId(), request.getAmount());
 		return new BaseResponse<>(new ChargeResponse(user));

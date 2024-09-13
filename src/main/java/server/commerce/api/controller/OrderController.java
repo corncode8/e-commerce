@@ -25,8 +25,8 @@ public class OrderController {
 	* @param id 사용자 아이디, OrderRequest 주문 정보
 	* @return 주문 정보 response
 	* */
-	@PostMapping("/{id}")
-	public BaseResponse<OrderResponse> order(@PathVariable("id") Long id, OrderRequest request) {
+	@PostMapping("/{userId}")
+	public BaseResponse<OrderResponse> order(@PathVariable("userId") Long id, OrderRequest request) {
 		Order order = orderUseCase.order(id, request);
 		return new BaseResponse<>(new OrderResponse(order));
 	}
