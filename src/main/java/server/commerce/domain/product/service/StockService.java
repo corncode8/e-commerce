@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import lombok.RequiredArgsConstructor;
+import server.commerce.api.util.aop.DistributedLock;
 import server.commerce.domain.order.components.OrderItemReader;
 import server.commerce.domain.order.components.OrderManager;
 import server.commerce.domain.order.entity.Order;
@@ -26,7 +27,7 @@ public class StockService {
 	public final OrderManager orderManager;
 
 
-	@Transactional
+	@DistributedLock(key = "T(server.commerce.api.util.aop.LockType).DECREASE_STOCK.getKey(#order.id)")
 	public void decreaseStock(Order order) {
 		try {
 			List<OrderItem> orderItemList = orderItemReader.findByOrderId(order.getId());
@@ -44,7 +45,7 @@ public class StockService {
 	public void compensateStock(Order order) {
 		Order findOrder = orderManager.findOrder(order.getId());
 
-		List<OrderItem> orderItemList = orderItemReader.findByOrderId(order.getId());
+		List<OrderItem> orderItemList = orderItemReader.findByOrderId(findOrder.getId());
 
 		for (OrderItem item : orderItemList) {
 			Stock stock = stockManager.readByProductId(item.getProductId());
